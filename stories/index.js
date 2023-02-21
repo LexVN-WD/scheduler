@@ -40,7 +40,7 @@ storiesOf("DayListItem", module)
   ));
 
 
-// DayList Mock Data
+// DayList Stories & Mock Data
 
 const days = [
   {
@@ -65,13 +65,13 @@ storiesOf("DayList", module)
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
   })
   .add("Monday", () => (
-    <DayList days={days} day={"Monday"} setDay={action("setDay")} />
+    <DayList days={days} day={"Monday"} onChange={action("setDay")} />
   ))
   .add("Tuesday", () => (
-    <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
+    <DayList days={days} day={"Tuesday"} onChange={action("setDay")} />
   ))
   .add("Wednesday", () => (
-    <DayList days={days} day={"Wednesday"} setDay={action("setDay")} />
+    <DayList days={days} day={"Wednesday"} onChange={action("setDay")} />
   ));
 
 // InterviewerListItem Story
@@ -135,8 +135,9 @@ storiesOf("InterviewerList", module)
     />
   ))
   .add("Clickable", () => (
-    <InterviewerList
-      interviewers={interviewers}
-      setInterviewer={action("setInterviewer")}
+    <InterviewerListItem
+      name={interviewer.name}
+      avatar={interviewer.avatar}
+      setInterviewer={() => action("setInterviewer")(interviewer.id)}
     />
   ));
