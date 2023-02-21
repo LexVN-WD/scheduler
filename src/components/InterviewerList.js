@@ -7,7 +7,7 @@ import InterviewerListItem from "./InterviewerListItem";
 export default function InterviewerList(props) {
 
   const intArr = props.interviewers.map(i => {
-    if (props.setInterviewer) {
+    if (props.onChange) {
       return (
         <InterviewerListItem
           key={i.id}
