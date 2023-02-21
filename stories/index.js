@@ -5,11 +5,13 @@ import { action } from "@storybook/addon-actions";
 
 import "index.scss";
 
+// Component Imports
 import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
+import Appointment from "components/Appointment/index.js";
 
 storiesOf("Button", module)
   .addParameters({
@@ -40,7 +42,7 @@ storiesOf("DayListItem", module)
   ));
 
 
-// DayList Stories & Mock Data
+// DayList Component Stories & Mock Data
 
 const days = [
   {
@@ -74,8 +76,7 @@ storiesOf("DayList", module)
     <DayList days={days} day={"Wednesday"} onChange={action("setDay")} />
   ));
 
-// InterviewerListItem Story
-
+// InterviewerListItem Component Stories & Mock Data
 const interviewer = {
   id: 1,
   name: "Sylvia Palmer",
@@ -110,7 +111,7 @@ storiesOf("InterviewerListItem", module)
     />
   ));
 
-// InterviewerList Stories
+// InterviewerList Component Stories & Mock Data
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -140,3 +141,11 @@ storiesOf("InterviewerList", module)
       onChange={action("setInterviewer")}
     />
   ));
+
+  // Appointment Component Stories
+storiesOf("Appointment", module)
+  .addParameters({
+    backgrounds: [{ name: "white", value: "#fff", default: true }]
+  })
+  .add("Appointment", () => <Appointment />)
+  .add("Appointment with Time", () => <Appointment time="12pm" />);
