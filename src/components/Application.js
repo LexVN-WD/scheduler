@@ -11,7 +11,7 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import "components/Appointment"
 import Appointment from "components/Appointment";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
 
 export default function Application(props) {
@@ -37,6 +37,7 @@ export default function Application(props) {
   }, [])
 
   const getAppointments = getAppointmentsForDay(state, state.day);
+  const getInterviewers = getInterviewersForDay(state, state.day);
 
   const appointmentsArr = getAppointments.map(i => {
 
@@ -48,6 +49,7 @@ export default function Application(props) {
         id={i.id}
         time={i.time}
         interview={interview}
+        interviewers={getInterviewers}
       />
     )
   })
