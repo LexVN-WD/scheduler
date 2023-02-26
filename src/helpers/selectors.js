@@ -8,7 +8,6 @@ export function getAppointmentsForDay(state, day) {
 
   const appointmentID = dayMatch.appointments;
 
-
   const appointmentArr = appointmentID.map((id) => state.appointments[id]);
   return appointmentArr;
 }
@@ -19,8 +18,8 @@ export function getInterviewersForDay(state, day) {
     return [];
   }
 
-  const daysArr = state.days.filter((dayMatch) => {
-    return day === dayMatch.name;
+  const daysArr = state.days.filter((specificDay) => {
+    return day === specificDay.name;
   });
 
   if (daysArr.length === 0) {
