@@ -4,6 +4,8 @@ import "components/InterviewerList.scss";
 
 import InterviewerListItem from "./InterviewerListItem";
 
+import PropTypes from 'prop-types';
+
 export default function InterviewerList(props) {
 
   const intArr = props.interviewers.map(i => {
@@ -36,3 +38,7 @@ export default function InterviewerList(props) {
     </section>
   );
 }
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
+};
