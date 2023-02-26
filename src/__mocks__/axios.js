@@ -83,13 +83,15 @@ export default {
     }
   }),
 
+  // Mock axios.put
   put: jest.fn((url) => {
     return Promise.resolve({
       status: 204,
       statusText: "No Content",
     });
   }),
-
+  
+  // Mock axios.delete
   delete: jest.fn((url) => {
     return Promise.resolve({
       status: 204,

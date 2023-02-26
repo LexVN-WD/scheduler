@@ -46,7 +46,7 @@ export default function useApplicationData() {
     return spots;
   };
 
-  
+
   // bookInterview Function
   function bookInterview(id, interview) {
     const appointment = { ...state.appointments[id], interview: { ...interview } };
@@ -84,16 +84,13 @@ export default function useApplicationData() {
       return day;
     })
 
-
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then(() => {
         setState({ ...state, appointments, days });
       });
   };
-
-  return { state, setDay, bookInterview, cancelInterview }
-
+  return { state, setDay, bookInterview, cancelInterview };
 };
 
 

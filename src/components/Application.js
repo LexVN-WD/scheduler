@@ -62,4 +62,4 @@ export default function Application(props) {
       <section className="schedule">{appointmentPropsArr}</section>
     </main>
   );
-}
+};

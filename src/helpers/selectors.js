@@ -10,7 +10,7 @@ export function getAppointmentsForDay(state, day) {
 
   const appointmentArr = appointmentID.map((id) => state.appointments[id]);
   return appointmentArr;
-}
+};
 
 export function getInterviewersForDay(state, day) {
 
@@ -28,14 +28,11 @@ export function getInterviewersForDay(state, day) {
 
   const interviewerID = daysArr[0].interviewers;
 
-
   if (interviewerID.length === 0) {
     return [];
   }
 
-
   let result = [];
-
 
   for (const id of interviewerID) {
     const interviewer = state.interviewers[id];
@@ -43,7 +40,7 @@ export function getInterviewersForDay(state, day) {
   }
 
   return result;
-}
+};
 
 
 export function getInterview(state, interview) {
@@ -59,4 +56,4 @@ export function getInterview(state, interview) {
       interviewer: state.interviewers[id],
     };
   }
-}
+};
